@@ -1,34 +1,15 @@
-/* 
 @font-face {
-  font-family: "ProximaNova";
-  src: url("/src/assets/fonts/ProximaNova-Regular.otf") format("truetype");
+  font-family: Sarabun;
+  src: url("/src/assets/fonts/Sarabun-Regular.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
-
-@font-face {
-  font-family: "NVNValky";
-  src: url("/src/assets/fonts/NVNValky-Bold.ttf") format("truetype");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("/src/assets/fonts/Montserrat-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("/src/assets/fonts/Montserrat-Regular.ttf") format("truetype");
-  font-weight: 500;
-} */
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Montserrat;
+  font-family: Sarabun;
   word-break: break-word;
   background-color: #ffffff !important;
   /* scroll-behavior: smooth; */
@@ -89,7 +70,7 @@ select:focus {
 }
 
 input {
-  padding: 8px 0px !important;
+  padding: 4px 0px !important;
 }
 
 h1 {
