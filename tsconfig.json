@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -20,24 +16,22 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "typeRoots": ["types.d.ts"],
-    "baseUrl": "src",
-    "paths": {
-      "@assets/*": ["assets/*"],
-      "@components/*": ["components/*"],
-      "@contexts/*": ["contexts/*"],
-      "@hooks/*": ["hooks/*"],
-      "@layouts/*": ["layouts/*"],
-      "@pages/*": ["pages/*"],
-      "@routes/*": ["routes/*"],
-      "@services/*": ["services/*"],
-      "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"],
-      "@store/*": ["store/*"],
-      "@transitions/*": ["transitions/*"],
-      "@types/*": ["types/*"],
-    },
+    "baseUrl": "src"
+    // "paths": {
+    //   "@assets/*": ["assets/*"],
+    //   "@components/*": ["components/*"],
+    //   "@contexts/*": ["contexts/*"],
+    //   "@hooks/*": ["hooks/*"],
+    //   "@layouts/*": ["layouts/*"],
+    //   "@pages/*": ["pages/*"],
+    //   "@routes/*": ["routes/*"],
+    //   "@services/*": ["services/*"],
+    //   "@styles/*": ["styles/*"],
+    //   "@utils/*": ["utils/*"],
+    //   "@store/*": ["store/*"],
+    //   "@transitions/*": ["transitions/*"],
+    //   "@types/*": ["types/*"],
+    // },
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

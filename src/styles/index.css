@@ -1,0 +1,21 @@
+:root {
+  --main-color: #c6ff00;
+  --main-background: #f2f4f1;
+  --gray-001: #efefef;
+  --gray-002: #d9d9d9;
+  --gray-003: #8e8e8e;
+  --gray--004: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    #303030;
+  --background1: #8e8e8e;
+  --background2: #e4e4e4;
+  --button-color: #b0bc92;
+  --icon-color: #ffede1;
+  --cancel-color: #f31a1a;
+  --h-header: 140px;
+  --ml-search-header: 220px;
+}
+
+@import url("./tailwind.css");
+@import url("./globals.css");
+@import url("./animation.css");
+@import url("./styles.css");

@@ -1,1 +1,7 @@
-{}
+{
+  "login": {
+    "login": "Đăng nhập",
+    "placeholder_name": "Nhập tên đăng nhập",
+    "placeholder_password": "Nhập mật khẩu"
+  }
+}

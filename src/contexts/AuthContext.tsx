@@ -6,7 +6,7 @@ interface Props {
 }
 
 interface AuthContext {
-  isLogin: boolean;
+  isLogin: Boolean;
   login: () => void;
 }
 
@@ -19,7 +19,7 @@ export const AuthContext = React.createContext<AuthContext>({
 const AuthProvider = (props: Props) => {
   const navigate = useNavigate();
   const { children } = props;
-  const [isLogin, setIslogin] = useState<boolean>(true);
+  const [isLogin, setIslogin] = useState<Boolean>(true);
 
   const login = () => {
     setIslogin(true);

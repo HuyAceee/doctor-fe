@@ -1,4 +1,4 @@
-import axiosClient from "@services/axios";
+import axiosClient from "services/axios";
 
 class HomeApi {
   example = () => {

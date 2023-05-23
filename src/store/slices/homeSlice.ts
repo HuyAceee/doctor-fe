@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { getExample } from "@store/asyncThunk/home";
-import { RootState } from "@store/store";
+import { getExample } from "store/asyncThunk/home";
+import { RootState } from "store/store";
 
 // Define a type for the slice state
 interface CounterState {
