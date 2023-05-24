@@ -49,12 +49,12 @@ module.exports = {
         extend: {
             fontFamily: { valky: ["NVNValky"] },
             screens: {
-                "max-3xl": { max: "1920px" },
-                "max-2xl": { max: "1536px" },
-                "max-xl": { max: "1280px" },
-                "max-lg": { max: "1024px" },
-                "max-md": { max: "768px" },
-                "max-sm": { max: "480px" },
+                "3xl": "1920px",
+                "2xl": "1536px",
+                "xl": "1280px",
+                "lg": "1024px",
+                "md": "768px",
+                "sm": "480px",
             },
             zIndex: {
                 "-1": -1, // -1    :background

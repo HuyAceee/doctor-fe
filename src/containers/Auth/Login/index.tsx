@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import DropdownLanguage from "components/ChangeLanguage";
 import TextInput from "components/TextInput";
 import { useTranslation } from "react-i18next";
@@ -7,11 +8,11 @@ import { useFormik } from "formik";
 import { checkArrayInvalid } from "utils/functions";
 import { useState } from "react";
 import Button from "components/Button";
-import { EButtonType } from "types/globalsType";
 import Google from "assets/images/login/google-icon.png";
 import Twitter from "assets/images/login/twitter-icon.png";
 import Facebook from "assets/images/login/facebook-icon.webp";
 import Icon from "components/Icon";
+import loginApi from "store/api/userApi";
 
 const Login = () => {
   const { t } = useTranslation();
@@ -24,11 +25,21 @@ const Login = () => {
     validationSchema: Yup.object({
       username: Yup.string().required(messageError),
       password: Yup.string().required(messageError),
+      // .matches(
+      //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+      //   "error.password_format"
+      // ),
     }),
     onSubmit: async (values) => {
       if (!checkArrayInvalid([values.username, values.password])) {
         setLoading(true);
         try {
+          const data = {
+            email: values.username,
+            password: values.password,
+          };
+          const response = await loginApi.login(data);
+          console.log(response);
         } catch (err) {
           console.log(err);
         } finally {
@@ -40,14 +51,14 @@ const Login = () => {
 
   return (
     <div
-      className={`h-screen w-screen flex justify-center items-center ${linearGradient}`}
+      className={`min-h-screen w-screen flex justify-center items-center ${linearGradient}`}
     >
       <div className="fixed top-8 right-8">
         <DropdownLanguage />
       </div>
-      <div className="bg-white h-4/5 w-1/3 rounded-lg shadow-md p-10 flex flex-col items-center justify-between">
+      <div className="bg-white w-[90vw] max-w-[500px] md:w-2/3 xl:w-1/2 rounded-lg shadow-md p-8 flex flex-col items-center justify-between">
         <div className="flex flex-col items-center">
-          <span className="font-bold text-header2 mb-3">
+          <span className="text-main font-bold text-header2 mb-3">
             {t("login.login")}
           </span>
           {/* <img
@@ -57,7 +68,7 @@ const Login = () => {
           /> */}
         </div>
 
-        <div className="w-full">
+        <div className="w-full my-10">
           <TextInput
             name="username"
             onChange={formik.handleChange}
@@ -75,8 +86,9 @@ const Login = () => {
             error={Boolean(formik.touched.password && formik.errors.password)}
             errorMessage={formik.errors.password}
           />
-          <div className="w-full flex justify-end">
-            <h3 className="my-3 cursor-pointer">
+          <div className="w-full flex justify-between">
+            <h3 className="text-main">{t("login.sign_up")}</h3>
+            <h3 className="mb-3 cursor-pointer">
               {t("login.forgot_password")}
             </h3>
           </div>
@@ -94,15 +106,6 @@ const Login = () => {
             <Icon src={Twitter} />
             <Icon src={Facebook} />
           </div>
-        </div>
-        <div>
-          <h3 className="text-center mb-2">{t("login.sign_up_using")}</h3>
-          <Button
-            title="login.sign_up"
-            onClick={formik.handleSubmit}
-            className=""
-            type={EButtonType.OUTLINE}
-          />
         </div>
       </div>
     </div>

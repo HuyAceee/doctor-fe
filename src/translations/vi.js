@@ -11,5 +11,6 @@ export default {
   },
   error: {
     message_input_required: "Trường này không hợp lệ",
+    password_format: "Phải chứa 8 ký tự, một chữ hoa, một chữ thường, một số và một ký tự đặc biệt"
   },
 };
