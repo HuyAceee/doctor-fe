@@ -27,7 +27,7 @@ const TextInput = ({
 }: ITextInputProps) => {
   const { t } = useTranslation();
   const ref: any = useRef();
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
   const onClick = () => {
     ref.current.focus();
     setActive(true);
@@ -55,13 +55,16 @@ const TextInput = ({
           className="absolute bottom-2 text-gray-500 transition-all duration-300"
           style={{
             transform: `translateY(${active ? -24 : 0}px)`,
-            color: active ? "blue" : "",
+            color: active ? "#2196f3" : "",
           }}
         >
           {t(placeholder)}
         </h3>
       </div>
-      <h5 style={{ opacity: error ? 1 : 0 }} className="text-[#F31A1A] h-5">
+      <h5
+        style={{ opacity: error ? 1 : 0 }}
+        className="text-[#F31A1A] h-5 text-[10px]"
+      >
         {t(errorMessage)}
       </h5>
     </div>

@@ -11,5 +11,6 @@ export default {
   },
   error: {
     message_input_required: "Field is invalid",
+    password_format: "Must contain 8 characters, characters uppercase, lowercase, number and special case character"
   },
 };
