@@ -11,6 +11,13 @@ export default {
   },
   error: {
     message_input_required: "Field is invalid",
-    password_format: "Must contain 8 characters, characters uppercase, lowercase, number and special case character"
+    password_format:
+      "Must contain 8 characters, characters uppercase, lowercase, number and special case character",
+  },
+  404: {
+    oops: "Oops",
+    page_not_found: "Page Not Found",
+    page_not_found_description: "The page you’re looking for doesn’t exist.",
+    go_home: "Go home",
   },
 };

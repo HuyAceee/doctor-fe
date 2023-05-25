@@ -11,6 +11,13 @@ export default {
   },
   error: {
     message_input_required: "Trường này không hợp lệ",
-    password_format: "Phải chứa 8 ký tự, một chữ hoa, một chữ thường, một số và một ký tự đặc biệt"
+    password_format:
+      "Phải chứa 8 ký tự, một chữ hoa, một chữ thường, một số và một ký tự đặc biệt",
+  },
+  404: {
+    oops: "Ối",
+    page_not_found: "Không tìm thấy trang",
+    page_not_found_description: "Trang bạn đang tìm không tồn tại.",
+    go_home: "Về trang chủ",
   },
 };

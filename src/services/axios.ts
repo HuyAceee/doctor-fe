@@ -10,7 +10,6 @@ const API = axios.create({
     "Access-Control-Allow-Headers": "X-Requested-With",
   },
   withCredentials: true,
-  headers: { "Access-Control-Allow-Origin": "*" },
 });
 
 API.interceptors.response.use(
