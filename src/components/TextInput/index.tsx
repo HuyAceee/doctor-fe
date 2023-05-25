@@ -27,7 +27,7 @@ const TextInput = ({
 }: ITextInputProps) => {
   const { t } = useTranslation();
   const ref: any = useRef();
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
   const onClick = () => {
     ref.current.focus();
     setActive(true);

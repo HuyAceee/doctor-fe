@@ -2,7 +2,7 @@
 import DropdownLanguage from "components/ChangeLanguage";
 import TextInput from "components/TextInput";
 import { useTranslation } from "react-i18next";
-import { linearGradient, messageError } from "utils/constants";
+import { ROUTES, linearGradient, messageError } from "utils/constants";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { checkArrayInvalid } from "utils/functions";
@@ -13,9 +13,13 @@ import Twitter from "assets/images/login/twitter-icon.png";
 import Facebook from "assets/images/login/facebook-icon.webp";
 import Icon from "components/Icon";
 import loginApi from "store/api/userApi";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { setToken } from "utils/localStorage";
 
 const Login = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -39,7 +43,11 @@ const Login = () => {
             password: values.password,
           };
           const response = await loginApi.login(data);
-          console.log(response);
+          if (response) {
+            toast.success("Login success!");
+            setToken("OK");
+            navigate(ROUTES.home);
+          }
         } catch (err) {
           console.log(err);
         } finally {
@@ -53,7 +61,7 @@ const Login = () => {
     <div
       className={`min-h-screen w-screen flex justify-center items-center ${linearGradient}`}
     >
-      <div className="fixed top-8 right-8">
+      <div className="fixed top-5 right-5">
         <DropdownLanguage />
       </div>
       <div className="bg-white w-[90vw] max-w-[500px] md:w-2/3 xl:w-1/2 rounded-lg shadow-md p-8 flex flex-col items-center justify-between">

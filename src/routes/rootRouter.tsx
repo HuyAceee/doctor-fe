@@ -1,9 +1,13 @@
+import React from "react";
 import { ROUTES } from "utils/constants";
-import Login from "containers/Auth/Login";
 import { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { getToken } from "utils/localStorage";
-import NotFound from "components/NotFound";
+import DefaultLayout from "layouts/DefaultLayout";
+
+const NotFound = React.lazy(() => import("components/NotFound"));
+const Login = React.lazy(() => import("containers/Auth/Login"));
+const HomePage = React.lazy(() => import("containers/Home"));
 
 const PrivateRoute = ({ children }: any) => {
   const auth = getToken();
@@ -16,8 +20,15 @@ const RootRouter = () => {
       <Routes>
         <Route path={ROUTES.notfound} element={<NotFound />} />
         <Route path={ROUTES.login.index} element={<Login />} />
-        <Route element={<PrivateRoute />}>
-          <Route path={ROUTES.home} />
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <DefaultLayout />
+            </PrivateRoute>
+          }
+        >
+          <Route path={ROUTES.home} element={<HomePage />} />
         </Route>
         <Route path="*" element={<Navigate to={ROUTES.notfound} />} />
       </Routes>
