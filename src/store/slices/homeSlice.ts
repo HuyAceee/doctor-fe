@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { getExample } from "store/asyncThunk/home";
+import { getUserDetail } from "store/asyncThunk/home";
 import { RootState } from "store/store";
 
 // Define a type for the slice state
@@ -32,15 +32,13 @@ export const homeSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    builder.addCase(getExample.pending, (state, action) => {});
-    builder.addCase(getExample.fulfilled, (state, action) => {
+    builder.addCase(getUserDetail.pending, (state, action) => {});
+    builder.addCase(getUserDetail.fulfilled, (state, action) => {
       state.example = action.payload;
     });
-    builder.addCase(getExample.rejected, (state, action) => {});
+    builder.addCase(getUserDetail.rejected, (state, action) => {});
   },
 });
-
-export const { increment, decrement, incrementByAmount } = homeSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCount = (state: RootState) => state.home.value;

@@ -1,7 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import homeApi from "store/api/homeApi";
+import { IGetUserDetailBody } from "store/types";
 
-export const getExample = createAsyncThunk("home/example", async () => {
-  const res = await homeApi.example();
-  return res;
-});
+export const getUserDetail = createAsyncThunk(
+  "home/users",
+  async (body: IGetUserDetailBody) => {
+    const res = await homeApi.getUserDetail(body);
+    return res;
+  }
+);

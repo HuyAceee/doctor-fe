@@ -20,4 +20,16 @@ export default {
     page_not_found_description: "Trang bạn đang tìm không tồn tại.",
     go_home: "Về trang chủ",
   },
+  header: {
+    specialist: "Chuyên khoa",
+    health_facilities: "Cơ sở y tế",
+    doctor: "Bác sĩ",
+    examination_package: "Gói khám",
+
+    side_bar: {
+      home_page: "Trang chủ",
+      handbook: "Cẩm nang",
+      contact: "Liên hệ",
+    },
+  },
 };

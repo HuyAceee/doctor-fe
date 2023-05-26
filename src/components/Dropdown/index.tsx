@@ -29,32 +29,30 @@ function Dropdown() {
   });
 
   return (
-    <div className="App">
-      <div className="menu-container" ref={menuRef}>
-        <div
-          className="menu-trigger"
-          onClick={() => {
-            setOpen(!open);
-          }}
-        >
-          <img alt="" src={user}></img>
-        </div>
+    <div className="menu-container" ref={menuRef}>
+      <div
+        className="menu-trigger"
+        onClick={() => {
+          setOpen(!open);
+        }}
+      >
+        <img alt="" src={user}></img>
+      </div>
 
-        <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
-          <h3>
-            Hello
-            <br />
-            <span>Website Designer</span>
-          </h3>
-          <ul>
-            <DropdownItem img={user} text={"My Profile"} />
-            <DropdownItem img={edit} text={"Edit Profile"} />
-            <DropdownItem img={inbox} text={"Inbox"} />
-            <DropdownItem img={settings} text={"Settings"} />
-            <DropdownItem img={help} text={"Helps"} />
-            <DropdownItem img={logout} text={"Logout"} />
-          </ul>
-        </div>
+      <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
+        <h3>
+          Hello
+          <br />
+          <span>Website Designer</span>
+        </h3>
+        <ul>
+          <DropdownItem img={user} text={"My Profile"} />
+          <DropdownItem img={edit} text={"Edit Profile"} />
+          <DropdownItem img={inbox} text={"Inbox"} />
+          <DropdownItem img={settings} text={"Settings"} />
+          <DropdownItem img={help} text={"Helps"} />
+          <DropdownItem img={logout} text={"Logout"} />
+        </ul>
       </div>
     </div>
   );

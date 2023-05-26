@@ -9,7 +9,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Sarabun;
+  font-family: Sarabun !important;
   word-break: break-word;
   background-color: #ffffff !important;
   /* scroll-behavior: smooth; */

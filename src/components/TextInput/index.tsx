@@ -55,7 +55,7 @@ const TextInput = ({
           className="absolute bottom-2 text-gray-500 transition-all duration-300"
           style={{
             transform: `translateY(${active ? -24 : 0}px)`,
-            color: active ? "#2196f3" : "",
+            color: active ? "#45c3d2" : "",
           }}
         >
           {t(placeholder)}

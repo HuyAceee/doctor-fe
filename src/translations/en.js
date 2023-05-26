@@ -20,4 +20,16 @@ export default {
     page_not_found_description: "The page you’re looking for doesn’t exist.",
     go_home: "Go home",
   },
+  header: {
+    specialist: "Specialist",
+    health_facilities: "Health facilities",
+    doctor: "Doctor",
+    examination_package: "Examination package",
+
+    side_bar: {
+      home_page: "Home page",
+      handbook: "Hanbook",
+      contact: "Contact",
+    },
+  },
 };

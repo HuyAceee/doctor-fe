@@ -46,6 +46,7 @@ const Login = () => {
           if (response) {
             toast.success("Login success!");
             setToken("OK");
+            await 
             navigate(ROUTES.home);
           }
         } catch (err) {

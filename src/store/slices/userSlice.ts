@@ -29,6 +29,6 @@ export const userSlice = createSlice({
 });
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectCount = (state: RootState) => state.home.value;
+export const selectCount = (state: RootState) => state.user.value;
 
 export default userSlice.reducer;

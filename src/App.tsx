@@ -1,10 +1,10 @@
-import "./App.css";
 import ContextProvider from "contexts/ContextProvider";
+import { useEffect } from "react";
 import { Provider } from "react-redux";
 import RootRouter from "routes/rootRouter";
 import { store } from "store/store";
-import { useEffect } from "react";
 import { version as newVersion } from "utils/version";
+import "./App.css";
 
 function App() {
   const version = localStorage.getItem("version") || "";

@@ -1,3 +1,12 @@
 export { ReactComponent as ViIcon } from "./login/vi.svg";
 export { ReactComponent as EnIcon } from "./login/en.svg";
 export { ReactComponent as WhatsappIcon } from "./home/like-icon.svg";
+export { ReactComponent as BellIcon } from "./header/bell.svg";
+export { ReactComponent as MessengerIcon } from "./header/messenger.svg";
+export { ReactComponent as CaretIcon } from "./header/caret.svg";
+export { ReactComponent as PlusIcon } from "./header/plus.svg";
+export { ReactComponent as CogIcon } from "./header/cog.svg";
+export { ReactComponent as ChevronIcon } from "./header/chevron.svg";
+export { ReactComponent as ArrowIcon } from "./header/arrow.svg";
+export { ReactComponent as BoltIcon } from "./header/bolt.svg";
+export { ReactComponent as CancelIcon } from "./header/cancel-icon.svg";

@@ -17,14 +17,17 @@ const DropdownLanguage = () => {
     setOpen(false);
   };
   return (
-    <div onMouseLeave={onMouseLeave} className="relative cursor-pointer">
+    <div
+      onMouseLeave={onMouseLeave}
+      onMouseOver={onMouseOver}
+      className="relative cursor-pointer"
+    >
       <img
-        onMouseOver={onMouseOver}
         alt="language"
         src={require(`assets/icons/login/${currentLang.value}.svg`)}
       />
       {open && (
-        <div className="fixed bg-white right-8 rounded-md">
+        <div className="fixed bg-white translate-x-[-20%] rounded-md">
           {LANGS.map((lang, index) => {
             return (
               <div

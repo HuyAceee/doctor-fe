@@ -1,11 +1,17 @@
 import Header from "components/Header";
-import MenuRight from "components/MenuRight";
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
+import { getUserDetail } from "store/asyncThunk/home";
 
 const DefaultLayout = () => {
+  const handleGetUserDetail = async () => {
+    await getUserDetail({ id: "1" });
+  };
+  useEffect(() => {
+    handleGetUserDetail();
+  }, []);
   return (
     <div>
-      <MenuRight />
       <Header />
       <Outlet />
     </div>
