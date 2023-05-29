@@ -5,6 +5,9 @@ import RootRouter from "routes/rootRouter";
 import { store } from "store/store";
 import { version as newVersion } from "utils/version";
 import "./App.css";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore } from "redux-persist";
+let persistor = persistStore(store);
 
 function App() {
   const version = localStorage.getItem("version") || "";
@@ -34,7 +37,9 @@ function App() {
   return (
     <ContextProvider>
       <Provider store={store}>
-        <RootRouter />
+        <PersistGate loading={null} persistor={persistor}>
+          <RootRouter />
+        </PersistGate>
       </Provider>
     </ContextProvider>
   );

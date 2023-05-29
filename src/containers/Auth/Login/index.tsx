@@ -12,13 +12,15 @@ import Google from "assets/images/login/google-icon.png";
 import Twitter from "assets/images/login/twitter-icon.png";
 import Facebook from "assets/images/login/facebook-icon.webp";
 import Icon from "components/Icon";
-import loginApi from "store/api/userApi";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { setToken } from "utils/localStorage";
+import { login } from "store/asyncThunk/user";
+import { useAppDispatch } from "store/hook";
 
 const Login = () => {
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const formik = useFormik({
@@ -42,15 +44,14 @@ const Login = () => {
             email: values.username,
             password: values.password,
           };
-          const response = await loginApi.login(data);
+          const response = await dispatch(login(data));
           if (response) {
-            toast.success("Login success!");
+            toast.success(t("toast.login_success"));
             setToken("OK");
-            await 
             navigate(ROUTES.home);
           }
         } catch (err) {
-          console.log(err);
+          toast.error(t("toast.login_fail"));
         } finally {
           setLoading(false);
         }

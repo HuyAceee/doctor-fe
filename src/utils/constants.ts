@@ -3,6 +3,11 @@ export const ROUTES = {
     index: "/login",
   },
   home: "/",
+  user: {
+    index: "/user",
+    create: "/user/new",
+    edit: "/user/edit",
+  },
   notfound: "/404",
 };
 export const messageError = "error.message_input_required";

@@ -9,6 +9,16 @@ export default {
     sign_up: "Sign up",
     other_login: "Or login with",
   },
+  toast: {
+    login_success: "Login success!",
+    create_success: "Create success!",
+    edit_success: "Edit success!",
+    delete_success: "Delete success!",
+    login_fail: "Login fail!",
+    create_fail: "Create fail!",
+    edit_fail: "Edit fail!",
+    delete_fail: "Delete fail!",
+  },
   error: {
     message_input_required: "Field is invalid",
     password_format:
@@ -30,6 +40,52 @@ export default {
       home_page: "Home page",
       handbook: "Hanbook",
       contact: "Contact",
+      user: "User management",
     },
   },
+  table: {
+    first_name: "First name",
+    last_name: "Last name",
+    gender: "Gender",
+    phone_number: "Phone number",
+    address: "Address",
+    action: "Action",
+    actions: {
+      edit: "Edit",
+      delete: "Delete"
+    }
+  },
+  home: {
+    user_management: "User management",
+    buttons: {
+      create_user: "Create new user"
+    }
+  },
+  user: {
+    create_user: "Create a new user",
+    edit_user: "Edit user information",
+    form: {
+      email: "Email",
+      password: "Pass word",
+      first_name: "First name",
+      last_name: "Last name",
+      gender: "Gender",
+      phone_number: "Phone number",
+      address: "Address",
+      role: "Role",
+      create: "Create",
+      save: "Save",
+      male: "Male",
+      female: "Female",
+      admin: "Admin",
+      doctor: "Doctor",
+      partient: "Partient"
+    },
+    modal: {
+      delete_user_title: "Delete user",
+      delete_user_description: "Are you sure you want to delete this user?",
+      delete: "Delete",
+      cancel: "Cancel"
+    }
+  }
 };

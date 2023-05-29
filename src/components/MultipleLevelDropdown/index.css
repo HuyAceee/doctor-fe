@@ -39,7 +39,7 @@ a {
 /* <nav> */
 .navbar {
   height: var(--nav-size);
-  background-color: var(--bg-main);
+  background-color: var(--bg);
   padding: 0 1rem;
   /* border-bottom: var(--border); */
 }

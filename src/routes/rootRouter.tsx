@@ -4,6 +4,8 @@ import { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { getToken } from "utils/localStorage";
 import DefaultLayout from "layouts/DefaultLayout";
+import UserPage from "containers/User";
+import HandleUser from "features/User/HandleUser";
 
 const NotFound = React.lazy(() => import("components/NotFound"));
 const Login = React.lazy(() => import("containers/Auth/Login"));
@@ -29,6 +31,10 @@ const RootRouter = () => {
           }
         >
           <Route path={ROUTES.home} element={<HomePage />} />
+
+          <Route path={ROUTES.user.index} element={<UserPage />} />
+          <Route path={ROUTES.user.create} element={<HandleUser />} />
+          <Route path={ROUTES.user.edit} element={<HandleUser />} />
         </Route>
         <Route path="*" element={<Navigate to={ROUTES.notfound} />} />
       </Routes>

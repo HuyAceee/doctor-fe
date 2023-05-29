@@ -15,6 +15,8 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "components/Sidebar";
 import DropdownLanguage from "components/ChangeLanguage";
+import { useAppSelector } from "store/hook";
+import { userSelector } from "store/slices/userSlice";
 
 interface IData {
   icon: JSX.Element;
@@ -128,6 +130,7 @@ function DropdownMenu() {
   const [activeMenu, setActiveMenu] = useState("main");
   const [menuHeight, setMenuHeight] = useState(0);
   const dropdownRef: any = useRef(null);
+  const { userDetail } = useAppSelector(userSelector);
 
   useEffect(() => {
     setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
@@ -167,22 +170,27 @@ function DropdownMenu() {
         unmountOnExit
         onEnter={calcHeight}
       >
-        <div className="menu">
-          <DropdownItem>My Profile</DropdownItem>
-          <DropdownItem
-            leftIcon={<CogIcon />}
-            rightIcon={<ChevronIcon />}
-            goToMenu="settings"
-          >
-            Settings
-          </DropdownItem>
-          <DropdownItem
-            leftIcon="🦧"
-            rightIcon={<ChevronIcon />}
-            goToMenu="animals"
-          >
-            Animals
-          </DropdownItem>
+        <div className="text-white">
+          <div className="p-2">
+            Hi, {userDetail.firstName + " " + userDetail.lastName}
+          </div>
+          <div className="menu">
+            <DropdownItem>My Profile</DropdownItem>
+            <DropdownItem
+              leftIcon={<CogIcon />}
+              rightIcon={<ChevronIcon />}
+              goToMenu="settings"
+            >
+              Settings
+            </DropdownItem>
+            <DropdownItem
+              leftIcon="🦧"
+              rightIcon={<ChevronIcon />}
+              goToMenu="animals"
+            >
+              Animals
+            </DropdownItem>
+          </div>
         </div>
       </CSSTransition>
 

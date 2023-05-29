@@ -13,18 +13,19 @@ const NotFound = () => {
           </h1>
 
           <h6 className="mb-2 text-2xl font-bold text-center text-gray-800 md:text-3xl">
-            <span className="text-red-500">{t("oops")}!</span>
-            {t("page_not_found")}
+            <span className="text-red-500">{t("404.oops")}!</span>{" "}
+            {t("404.page_not_found")}
           </h6>
 
           <p className="mb-4 text-center text-gray-500 md:text-lg">
-            {t("page_not_found_description")}
+            {t("404.page_not_found_description")}
           </p>
-          {t("go_home")}
           <Link
             to="/"
             className="px-5 py-2 rounded-md text-blue-100 bg-blue-600 hover:bg-blue-700"
-          ></Link>
+          >
+            {t("404.go_home")}
+          </Link>
         </div>
       </div>
     </div>

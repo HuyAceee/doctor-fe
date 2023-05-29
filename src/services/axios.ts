@@ -14,7 +14,7 @@ const API = axios.create({
 
 API.interceptors.response.use(
   (response) => {
-    return response;
+    return response.data;
   },
   (error) => {
     const statusCode = error.response?.status;

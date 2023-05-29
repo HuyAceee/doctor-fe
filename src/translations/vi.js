@@ -30,6 +30,52 @@ export default {
       home_page: "Trang chủ",
       handbook: "Cẩm nang",
       contact: "Liên hệ",
+      user: "Quản lý người dùng",
     },
   },
+  table: {
+    first_name: "Họ",
+    last_name: "Tên",
+    gender: "Giới tính",
+    phone_number: "Số điện thoại",
+    address: "Địa chỉ",
+    action: "Thao tác",
+    actions: {
+      edit: "Sửa",
+      delete: "Xóa"
+    }
+  },
+  home: {
+    user_management: "Quản lý người dùng",
+    buttons: {
+      create_user: "Tạo mới người dùng"
+    }
+  },
+  user: {
+    create_user: "Tạo mới người dùng",
+    edit_user: "Sửa thông tin người dùng",
+    form: {
+      email: "Email",
+      password: "Mật khẩu",
+      first_name: "Họ",
+      last_name: "Tên",
+      gender: "Giới tính",
+      phone_number: "Số điện thoại",
+      address: "Địa chỉ",
+      role: "Chức vụ",
+      create: "Tạo",
+      save: "Lưu",
+      male: "Nam",
+      female: "Nữ",
+      admin: "Quản trị viên",
+      doctor: "Bác sĩ",
+      partient: "Bệnh nhân"
+    },
+    modal: {
+      delete_user_title: "Xóa người dùng",
+      delete_user_description: "Bạn có chắc chắc muốn xóa user này",
+      delete: "Xóa",
+      cancel: "Hủy"
+    }
+  }
 };
