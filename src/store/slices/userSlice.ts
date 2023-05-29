@@ -44,7 +44,6 @@ export const userSlice = createSlice({
       state.userDetail = action.payload.users;
     });
     builder.addCase(getAllUsers.fulfilled, (state, action) => {
-      console.log(action.payload);
       state.userList = action.payload.users;
     });
   },

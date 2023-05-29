@@ -3,12 +3,15 @@ export const ROUTES = {
     index: "/login",
   },
   home: "/",
-  user: {
-    index: "/user",
-    create: "/user/new",
-    edit: "/user/edit",
-  },
   notfound: "/404",
+  system: {
+    index: "/system",
+    user: {
+      index: "/system/user-management",
+      create: "/system/user-management/new",
+      edit: "/system/user-management/edit",
+    },
+  },
 };
 export const messageError = "error.message_input_required";
 export const linearGradient =

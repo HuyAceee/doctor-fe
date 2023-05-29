@@ -5,12 +5,13 @@ import { useTranslation } from "react-i18next";
 import { ROUTES, messageError } from "utils/constants";
 import * as Yup from "yup";
 import { useState } from "react";
-import { checkArrayInvalid } from "utils/functions";
+import { checkArrayInvalid, convertImageFromBuffer } from "utils/functions";
 import { IOption, IUserFormData } from "types/userType";
 import userApi from "store/api/userApi";
 import SelectInput from "components/SelectInput";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { AddIcon } from "assets/icons";
 
 interface IFieldInput {
   name: string;
@@ -57,57 +58,54 @@ const listFields: IFieldInput[] = [
   },
 ];
 
-const listSelect: ISelectInput[] = [
-  {
-    name: pathLang + "gender",
-    field: "gender",
-    options: [
-      {
-        name: pathLang + "female",
-        value: "0",
-      },
-      {
-        name: pathLang + "male",
-        value: "1",
-      },
-    ],
-  },
-  {
-    name: pathLang + "role",
-    field: "roleId",
-    options: [
-      {
-        name: pathLang + "admin",
-        value: "1",
-      },
-      {
-        name: pathLang + "doctor",
-        value: "2",
-      },
-      {
-        name: pathLang + "partient",
-        value: "3",
-      },
-    ],
-  },
-];
+const renderListSelect = (
+  genderOptions: any,
+  roleOptions: any
+): ISelectInput[] => {
+  return [
+    {
+      name: pathLang + "gender",
+      field: "gender",
+      options: genderOptions,
+    },
+    {
+      name: pathLang + "role",
+      field: "roleId",
+      options: roleOptions,
+    },
+  ];
+};
 
 interface IUserFormProps {
   initialValues: IUserFormData;
   userId: string | undefined;
+  genderOptions: any[];
+  roleOptions: any[];
+  image: any;
 }
-const UserForm = ({ initialValues, userId = "" }: IUserFormProps) => {
+const UserForm = ({
+  initialValues,
+  userId = "",
+  genderOptions,
+  roleOptions,
+  image,
+}: IUserFormProps) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(false);
+  const [avatar, setAvatar] = useState<any>(
+    image ? convertImageFromBuffer(image) : null
+  );
+
+  console.log(avatar);
   const isEdit = !!userId;
 
   const handleCreateUser = async (body: IUserFormData) => {
     try {
-      const response = await userApi.createNewUser(body);
+      const response = await userApi.createNewUser({ ...body, image: avatar });
       if (response) {
         toast.success(t("toast.create_success"));
-        navigate(ROUTES.user.index);
+        navigate(ROUTES.system.user.index);
       }
     } catch (err) {
       console.log(err);
@@ -117,14 +115,30 @@ const UserForm = ({ initialValues, userId = "" }: IUserFormProps) => {
 
   const handleEditUser = async (body: IUserFormData) => {
     try {
-      const response = await userApi.editUser({ ...body, id: userId });
+      const response = await userApi.editUser({
+        ...body,
+        id: userId,
+        image: avatar,
+      });
       if (response) {
         toast.success(t("toast.edit_success"));
-        navigate(ROUTES.user.index);
+        navigate(ROUTES.system.user.index);
       }
     } catch (err) {
       console.log(err);
       // toast.error(t("toast.edit_fail"));
+    }
+  };
+
+  const listSelect = renderListSelect(genderOptions, roleOptions);
+
+  const onSelectFile = (e: any) => {
+    if (e?.target?.files && e.target.files.length > 0) {
+      const reader = new FileReader();
+      reader.addEventListener("load", () => setAvatar(reader.result));
+      reader.readAsDataURL(e.target.files[0]);
+    } else {
+      setAvatar("");
     }
   };
 
@@ -145,7 +159,6 @@ const UserForm = ({ initialValues, userId = "" }: IUserFormProps) => {
       // ),
     }),
     onSubmit: async (values) => {
-      console.log(values);
       if (
         !checkArrayInvalid([
           values.email,
@@ -211,6 +224,31 @@ const UserForm = ({ initialValues, userId = "" }: IUserFormProps) => {
             />
           );
         })}
+        <div
+          onClick={() => {
+            const cvElement = document.getElementById("avatar");
+            if (!cvElement) return;
+            cvElement.click();
+          }}
+          className="flex items-center justify-center cursor-pointer border border-1 bg-cover rounded-[10px] aspect-[4/3] w-[30%]"
+        >
+          <input
+            hidden
+            id="avatar"
+            accept="image/*"
+            type="file"
+            onChange={onSelectFile}
+          />
+          {avatar ? (
+            <img
+              className="aspect-[4/3] rounded-[10px] w-full object-cover"
+              src={avatar}
+              alt=""
+            />
+          ) : (
+            <AddIcon className="max-sm:w-[20px] max-sm-640:w-[25px]" />
+          )}
+        </div>
       </div>
       <div className="flex flex-row justify-end">
         <Button

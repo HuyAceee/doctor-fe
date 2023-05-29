@@ -9,3 +9,4 @@ export const getUserDetail = createAsyncThunk(
     return res;
   }
 );
+

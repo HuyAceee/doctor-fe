@@ -10,3 +10,4 @@ export { ReactComponent as ChevronIcon } from "./header/chevron.svg";
 export { ReactComponent as ArrowIcon } from "./header/arrow.svg";
 export { ReactComponent as BoltIcon } from "./header/bolt.svg";
 export { ReactComponent as CancelIcon } from "./header/cancel-icon.svg";
+export { ReactComponent as AddIcon } from "./user/add-icon.svg";

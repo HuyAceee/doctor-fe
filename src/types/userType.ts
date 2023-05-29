@@ -8,6 +8,7 @@ export interface IUserFormData {
   phoneNumber: string;
   address: string;
   roleId: string;
+  image?: string;
 }
 
 export interface IOption {

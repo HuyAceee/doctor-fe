@@ -3,6 +3,7 @@ import { useOnClickOutside } from "hooks/useClickOutSide";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { ROUTES } from "utils/constants";
 
 const listmenu = [
   {
@@ -11,16 +12,16 @@ const listmenu = [
   },
   {
     title: "header.side_bar.user",
-    path: "/user",
+    path: ROUTES.system.user.index,
   },
-  {
-    title: "header.side_bar.handbook",
-    path: "/",
-  },
-  {
-    title: "header.side_bar.contact",
-    path: "/",
-  },
+  // {
+  //   title: "header.side_bar.handbook",
+  //   path: "/",
+  // },
+  // {
+  //   title: "header.side_bar.contact",
+  //   path: "/",
+  // },
 ];
 
 const Sidebar = () => {

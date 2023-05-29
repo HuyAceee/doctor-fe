@@ -49,7 +49,7 @@ const UserPage = () => {
   };
 
   const handleEditUser = (id: string) => {
-    navigate({ pathname: ROUTES.user.edit, search: `?id=${id}` });
+    navigate({ pathname: ROUTES.system.user.edit, search: `?id=${id}` });
   };
 
   const onDeleteUser = (id: string) => {
@@ -107,7 +107,7 @@ const UserPage = () => {
       </h1>
       <div className="flex flex-row justify-end my-10">
         <Button
-          onClick={() => navigate(ROUTES.user.create)}
+          onClick={() => navigate(ROUTES.system.user.create)}
           title="home.buttons.create_user"
         />
       </div>

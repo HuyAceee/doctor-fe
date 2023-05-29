@@ -1,13 +1,13 @@
 import { useTranslation } from "react-i18next";
 import { messageError } from "utils/constants";
 import { ChangeEvent } from "react";
-import { IOption } from "types/userType";
+import useLocales from "hooks/useLocales";
 
 interface ISelectInputProps {
   value: string;
   onChange: (e: ChangeEvent<any>) => void;
   title: string;
-  options: IOption[];
+  options: any[];
   placeholder: string;
   error?: boolean;
   errorMessage?: string;
@@ -25,6 +25,9 @@ const SelectInput = ({
   name,
 }: ISelectInputProps) => {
   const { t } = useTranslation();
+  const { currentLang } = useLocales();
+  const isEn = currentLang.value === "en";
+  console.log(options);
   return (
     <div>
       <label
@@ -45,8 +48,8 @@ const SelectInput = ({
         </option>
         {options.map((option, index) => {
           return (
-            <option key={index} value={option.value}>
-              {t(option.name)}
+            <option key={index} value={option.keyMap}>
+              {t(isEn ? option.valueEn : option.valueVi)}
             </option>
           );
         })}
