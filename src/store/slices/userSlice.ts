@@ -4,14 +4,14 @@ import { RootState } from "store/store";
 import { IUserDetail } from "store/types";
 
 // Define a type for the slice state
-interface CounterState {
+interface IInitialState {
   userList: IUserDetail[];
   userDetail: IUserDetail;
   example: string[];
 }
 
 // Define the initial state using that type
-const initialState: CounterState = {
+const initialState: IInitialState = {
   userList: [],
   userDetail: {
     id: "",
@@ -38,7 +38,9 @@ export const userSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder.addCase(login.pending, (state, action) => {});
-    builder.addCase(login.fulfilled, (state, action) => {});
+    builder.addCase(login.fulfilled, (state, action) => {
+      state.userDetail = action.payload.users;
+    });
     builder.addCase(login.rejected, (state, action) => {});
     builder.addCase(getUserDetail.fulfilled, (state, action) => {
       state.userDetail = action.payload.users;

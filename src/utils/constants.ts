@@ -11,6 +11,11 @@ export const ROUTES = {
       create: "/system/user-management/new",
       edit: "/system/user-management/edit",
     },
+    doctor: {
+      index: "/system/doctor-management",
+      create: "/system/doctor-management/new",
+      edit_info: "/system/doctor-management/edit_info",
+    },
   },
 };
 export const messageError = "error.message_input_required";

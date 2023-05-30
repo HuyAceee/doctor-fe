@@ -17,3 +17,15 @@ export interface IUserDetail {
   createAt: string;
   updateAt: string;
 }
+
+export interface IDoctorInfo {
+  id: string;
+  doctorId: string;
+  priceId: string;
+  provinceId: string;
+  paymentId: string;
+  addressClinic: string;
+  nameClinic: string;
+  note: string;
+  count: string;
+}

@@ -17,6 +17,8 @@ import Sidebar from "components/Sidebar";
 import DropdownLanguage from "components/ChangeLanguage";
 import { useAppSelector } from "store/hook";
 import { userSelector } from "store/slices/userSlice";
+import { ROUTES } from "utils/constants";
+import { deleteStateStorage } from "utils/localStorage";
 
 interface IData {
   icon: JSX.Element;
@@ -127,6 +129,7 @@ function NavItem({ icon, children }: INavItemProps) {
 }
 
 function DropdownMenu() {
+  const navigate = useNavigate();
   const [activeMenu, setActiveMenu] = useState("main");
   const [menuHeight, setMenuHeight] = useState(0);
   const dropdownRef: any = useRef(null);
@@ -154,6 +157,11 @@ function DropdownMenu() {
       </a>
     );
   }
+
+  const handleLogout = () => {
+    deleteStateStorage("token");
+    navigate(ROUTES.login.index);
+  };
 
   return (
     <div
@@ -190,6 +198,9 @@ function DropdownMenu() {
             >
               Animals
             </DropdownItem>
+            <div onClick={handleLogout}>
+              <DropdownItem>Logout</DropdownItem>
+            </div>
           </div>
         </div>
       </CSSTransition>

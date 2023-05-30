@@ -41,6 +41,7 @@ export default {
       handbook: "Hanbook",
       contact: "Contact",
       user: "User management",
+      doctor: "Doctor management",
     },
   },
   table: {
@@ -52,14 +53,16 @@ export default {
     action: "Action",
     actions: {
       edit: "Edit",
-      delete: "Delete"
-    }
+      edit_info: "Edit info",
+      delete: "Delete",
+    },
   },
   home: {
     user_management: "User management",
+    doctor_management: "Doctor management",
     buttons: {
-      create_user: "Create new user"
-    }
+      create_user: "Create new user",
+    },
   },
   user: {
     create_user: "Create a new user",
@@ -79,13 +82,13 @@ export default {
       female: "Female",
       admin: "Admin",
       doctor: "Doctor",
-      partient: "Partient"
+      partient: "Partient",
     },
     modal: {
       delete_user_title: "Delete user",
       delete_user_description: "Are you sure you want to delete this user?",
       delete: "Delete",
-      cancel: "Cancel"
-    }
-  }
+      cancel: "Cancel",
+    },
+  },
 };

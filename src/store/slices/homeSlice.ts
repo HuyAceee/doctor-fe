@@ -3,12 +3,12 @@ import { getUserDetail } from "store/asyncThunk/user";
 import { RootState } from "store/store";
 
 // Define a type for the slice state
-interface CounterState {
+interface IInitialState {
   example: string[];
 }
 
 // Define the initial state using that type
-const initialState: CounterState = {
+const initialState: IInitialState = {
   example: [],
 };
 

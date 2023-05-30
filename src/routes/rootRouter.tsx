@@ -7,6 +7,8 @@ import DefaultLayout from "layouts/DefaultLayout";
 import UserPage from "containers/User";
 import HandleUser from "features/User/HandleUser";
 import Loading from "components/Loading";
+import DoctorPage from "containers/Doctor";
+import EditInfo from "features/Doctor/EditInfo";
 
 const NotFound = React.lazy(() => import("components/NotFound"));
 const Login = React.lazy(() => import("containers/Auth/Login"));
@@ -34,6 +36,9 @@ const RootRouter = () => {
           <Route path={ROUTES.system.user.index} element={<UserPage />} />
           <Route path={ROUTES.system.user.create} element={<HandleUser />} />
           <Route path={ROUTES.system.user.edit} element={<HandleUser />} />
+
+          <Route path={ROUTES.system.doctor.index} element={<DoctorPage />} />
+          <Route path={ROUTES.system.doctor.edit_info} element={<EditInfo />} />
         </Route>
         <Route path="/" element={<DefaultLayout />}>
           <Route path={ROUTES.home} element={<HomePage />} />

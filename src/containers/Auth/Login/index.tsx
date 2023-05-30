@@ -45,7 +45,7 @@ const Login = () => {
             password: values.password,
           };
           const response = await dispatch(login(data));
-          if (response) {
+          if (response?.payload) {
             toast.success(t("toast.login_success"));
             setToken("OK");
             navigate(ROUTES.home);

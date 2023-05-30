@@ -31,6 +31,7 @@ export default {
       handbook: "Cẩm nang",
       contact: "Liên hệ",
       user: "Quản lý người dùng",
+      doctor: "Quản lý bác sĩ",
     },
   },
   table: {
@@ -42,11 +43,13 @@ export default {
     action: "Thao tác",
     actions: {
       edit: "Sửa",
+      edit_info: "Sửa thông tin",
       delete: "Xóa"
     }
   },
   home: {
     user_management: "Quản lý người dùng",
+    doctor_management: "Quản lý bác sĩ",
     buttons: {
       create_user: "Tạo mới người dùng"
     }

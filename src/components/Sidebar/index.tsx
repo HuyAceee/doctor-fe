@@ -14,13 +14,13 @@ const listmenu = [
     title: "header.side_bar.user",
     path: ROUTES.system.user.index,
   },
+  {
+    title: "header.side_bar.doctor",
+    path: ROUTES.system.doctor.index,
+  },
   // {
-  //   title: "header.side_bar.handbook",
-  //   path: "/",
-  // },
-  // {
-  //   title: "header.side_bar.contact",
-  //   path: "/",
+  //   title: "header.side_bar.markdown",
+  //   path: ROUTES.system.doctor.index,
   // },
 ];
 
