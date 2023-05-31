@@ -7,7 +7,6 @@ import { IUserDetail } from "store/types";
 interface IInitialState {
   userList: IUserDetail[];
   userDetail: IUserDetail;
-  example: string[];
 }
 
 // Define the initial state using that type
@@ -28,7 +27,6 @@ const initialState: IInitialState = {
     createAt: "",
     updateAt: "",
   },
-  example: [],
 };
 
 export const userSlice = createSlice({

@@ -2,6 +2,15 @@ export interface IGetUserDetailBody {
   id: string;
 }
 
+export interface IMarkdownBody {
+  doctorId?: string;
+  clinicId?: string;
+  specialtyId?: string;
+  contentHTML: string;
+  contentMarkdown: string;
+  description: string;
+}
+
 export interface IUserDetail {
   id: string;
   email: string;
