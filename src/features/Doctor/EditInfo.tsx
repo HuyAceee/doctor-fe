@@ -11,6 +11,7 @@ import Button from "components/Button";
 import { convertImageFromBuffer } from "utils/functions";
 import Loading from "components/Loading";
 import markdownApi from "store/api/markdownApi";
+import { getMarkdown } from "store/asyncThunk/markdown";
 
 interface IOption {
   value: string;
@@ -74,6 +75,15 @@ const EditInfo = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doctorList]);
 
+  useEffect(() => {
+    dispatch(
+      getMarkdown({
+        doctorId: selectedOption?.id,
+      })
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedOption]);
+
   const handleEditorChange = ({ html, text }: IMarkdownChangeProps) => {
     setData({ ...data, contentHTML: html, contentMarkdown: text });
   };
@@ -100,20 +110,28 @@ const EditInfo = () => {
   return (
     <div>
       <img
-        className="aspect-[4/3] rounded-[10px] w-full object-cover"
+        className="aspect-[4/3] rounded-[10px] w-1/2 object-cover mb-10"
         src={imageDoctor}
         alt=""
       />
-      <div>
+      <div className="mb-10">
         <Select
           value={selectedOption}
           onChange={handleChange}
           options={renderListSelect()}
         />
-        <textarea value={data.description} onChange={onChangeDescription} />
       </div>
+      <textarea
+        value={data.description}
+        onChange={onChangeDescription}
+        className="mb-10"
+      />
       <MdEditor
         style={{ height: "500px" }}
+        className="mb-10"
+        defaultValue={
+          'Bác sĩ **Đỗ Văn Anh**\n\n```\nexport const helloWorld = () => {\n   return "Hello World"\n}\n```\n'
+        }
         renderHTML={(text) => mdParser.render(text)}
         onChange={handleEditorChange}
       />

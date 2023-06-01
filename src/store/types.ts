@@ -11,6 +11,13 @@ export interface IMarkdownBody {
   description: string;
 }
 
+export interface IGetMarkdownBody {
+  doctorId?: string;
+  clinicId?: string;
+  specialtyId?: string;
+  id?: string;
+}
+
 export interface IUserDetail {
   id: string;
   email: string;
