@@ -8,12 +8,10 @@ import MarkdownIt from "markdown-it";
 import MdEditor from "react-markdown-editor-lite";
 import "react-markdown-editor-lite/lib/index.css";
 import Button from "components/Button";
-import { convertImageFromBuffer } from "utils/functions";
 import Loading from "components/Loading";
 import markdownApi from "store/api/markdownApi";
-import { getMarkdown } from "store/asyncThunk/markdown";
 
-interface IOption {
+export interface IOptionSelect {
   value: string;
   label: string;
   id: string;
@@ -30,7 +28,9 @@ const EditInfo = () => {
   const dispatch = useAppDispatch();
   const location = useLocation();
   const { doctorList } = useAppSelector(doctorSelector);
-  const [selectedOption, setSelectOption] = useState<IOption | null>(null);
+  const [selectedOption, setSelectOption] = useState<IOptionSelect | null>(
+    null
+  );
   const [data, setData] = useState({
     doctorId: "",
     contentHTML: "",
@@ -39,7 +39,7 @@ const EditInfo = () => {
   });
   const [loading, setLoading] = useState(true);
 
-  const renderListSelect = (): IOption[] => {
+  const renderListSelect = (): IOptionSelect[] => {
     const result = doctorList.map((doctor) => {
       return {
         value: doctor.id,
@@ -57,7 +57,6 @@ const EditInfo = () => {
 
   useEffect(() => {
     dispatch(getAllDoctors());
-    setLoading(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -67,20 +66,32 @@ const EditInfo = () => {
     });
     if (temp && renderListSelect().length) {
       setSelectOption(temp);
-      setData({ ...data, doctorId: temp.id });
     } else {
       setSelectOption(renderListSelect()[0]);
-      setData({ ...data, doctorId: renderListSelect()[0].id });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doctorList]);
 
-  useEffect(() => {
-    dispatch(
-      getMarkdown({
+  const handleGetMarkdown = async () => {
+    if (selectedOption) {
+      setLoading(true);
+      const res: any = await markdownApi.getMarkdown({
         doctorId: selectedOption?.id,
-      })
-    );
+      });
+      setData(
+        res.markdown || {
+          doctorId: "",
+          contentHTML: "",
+          contentMarkdown: "",
+          description: "",
+        }
+      );
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    handleGetMarkdown();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedOption]);
 
@@ -92,7 +103,7 @@ const EditInfo = () => {
     setData({ ...data, description: e.target.value });
   };
 
-  const handleChange = (selectedOption: IOption | null) => {
+  const handleChange = (selectedOption: IOptionSelect | null) => {
     setSelectOption(selectedOption);
     if (selectedOption) setData({ ...data, doctorId: selectedOption.id });
   };
@@ -101,17 +112,14 @@ const EditInfo = () => {
     return <Loading />;
   }
 
-  const imageDoctor = convertImageFromBuffer(
-    doctorList.length
-      ? doctorList.find((doctor) => doctor.id === selectedOption?.id)?.image
-      : "1"
-  );
-
+  const imageDoctor = doctorList.length
+    ? doctorList.find((doctor) => doctor.id === selectedOption?.id)?.image
+    : "";
   return (
     <div>
       <img
         className="aspect-[4/3] rounded-[10px] w-1/2 object-cover mb-10"
-        src={imageDoctor}
+        src={imageDoctor || ""}
         alt=""
       />
       <div className="mb-10">
@@ -129,13 +137,13 @@ const EditInfo = () => {
       <MdEditor
         style={{ height: "500px" }}
         className="mb-10"
-        defaultValue={
-          'Bác sĩ **Đỗ Văn Anh**\n\n```\nexport const helloWorld = () => {\n   return "Hello World"\n}\n```\n'
-        }
+        defaultValue={data.contentMarkdown}
         renderHTML={(text) => mdParser.render(text)}
         onChange={handleEditorChange}
       />
       <Button onClick={handleSaveMarkdown} title="Save" />
+
+      <div dangerouslySetInnerHTML={{ __html: data.contentHTML || "" }}></div>
     </div>
   );
 };

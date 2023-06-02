@@ -1,7 +1,15 @@
 export enum EAllCodeType {
-  GENDER = "gender",
-  ROLE = "role",
-  STATUS = "status",
-  TIME = "time",
-  POSITION = "position",
+  GENDER = "GENDER",
+  ROLE = "ROLE",
+  STATUS = "STATUS",
+  TIME = "TIME",
+  POSITION = "POSITION",
+}
+
+export interface ICode {
+  id: string;
+  keyMap: string;
+  type: EAllCodeType;
+  valueEn: string;
+  valueVi: string;
 }

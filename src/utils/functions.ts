@@ -9,6 +9,7 @@ export const checkArrayInvalid = (arr: string[]) => {
 };
 
 export const convertImageFromBuffer = (data: any) => {
+  if (!data) return "";
   const res = new Buffer(data, "base64").toString("binary");
   return res;
 };

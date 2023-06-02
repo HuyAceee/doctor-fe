@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { ROUTES, messageError } from "utils/constants";
 import * as Yup from "yup";
 import { useState } from "react";
-import { checkArrayInvalid, convertImageFromBuffer } from "utils/functions";
+import { checkArrayInvalid } from "utils/functions";
 import { IOption, IUserFormData } from "types/userType";
 import userApi from "store/api/userApi";
 import SelectInput from "components/SelectInput";
@@ -93,9 +93,7 @@ const UserForm = ({
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(false);
-  const [avatar, setAvatar] = useState<any>(
-    image ? convertImageFromBuffer(image) : null
-  );
+  const [avatar, setAvatar] = useState<any>(image || null);
 
   console.log(avatar);
   const isEdit = !!userId;

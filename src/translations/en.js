@@ -42,6 +42,7 @@ export default {
       contact: "Contact",
       user: "User management",
       doctor: "Doctor management",
+      medical_examination_plan: "Medical examination plan",
     },
   },
   table: {

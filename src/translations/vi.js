@@ -9,6 +9,16 @@ export default {
     sign_up: "Đăng ký",
     orther_login: "Hoặc đăng nhập bằng",
   },
+  toast: {
+    login_success: "Đăng nhập thành công!",
+    create_success: "Thêm thành công!",
+    edit_success: "Update thành công!",
+    delete_success: "Xóa thành công!",
+    login_fail: "Đăng nhập thất bại!",
+    create_fail: "Thêm thất bại!",
+    edit_fail: "Tạo thất bại!",
+    delete_fail: "Xóa thất bại!",
+  },
   error: {
     message_input_required: "Trường này không hợp lệ",
     password_format:
@@ -32,6 +42,7 @@ export default {
       contact: "Liên hệ",
       user: "Quản lý người dùng",
       doctor: "Quản lý bác sĩ",
+      medical_examination_plan: "Kế hoạch khám bệnh",
     },
   },
   table: {
@@ -44,15 +55,15 @@ export default {
     actions: {
       edit: "Sửa",
       edit_info: "Sửa thông tin",
-      delete: "Xóa"
-    }
+      delete: "Xóa",
+    },
   },
   home: {
     user_management: "Quản lý người dùng",
     doctor_management: "Quản lý bác sĩ",
     buttons: {
-      create_user: "Tạo mới người dùng"
-    }
+      create_user: "Tạo mới người dùng",
+    },
   },
   user: {
     create_user: "Tạo mới người dùng",
@@ -72,13 +83,13 @@ export default {
       female: "Nữ",
       admin: "Quản trị viên",
       doctor: "Bác sĩ",
-      partient: "Bệnh nhân"
+      partient: "Bệnh nhân",
     },
     modal: {
       delete_user_title: "Xóa người dùng",
       delete_user_description: "Bạn có chắc chắc muốn xóa user này",
       delete: "Xóa",
-      cancel: "Hủy"
-    }
-  }
+      cancel: "Hủy",
+    },
+  },
 };

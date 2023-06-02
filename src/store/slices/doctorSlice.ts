@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getAllDoctors, getDoctorInfo } from "store/asyncThunk/doctor";
 import { RootState } from "store/store";
-import { IDoctorInfo, IUserDetail } from "store/types";
+import { EStatus, IDoctorInfo, IMarkdown, IUserDetail } from "store/types";
 
 // Define a type for the slice state
 interface IInitialState {
   doctorList: IUserDetail[];
   doctorDetail: IUserDetail;
   doctorInfo: IDoctorInfo;
+  markdown: IMarkdown;
+  status: EStatus;
 }
 
 // Define the initial state using that type
@@ -39,6 +41,15 @@ const initialState: IInitialState = {
     priceId: "",
     provinceId: "",
   },
+  markdown: {
+    doctorId: "",
+    clinicId: "",
+    specialtyId: "",
+    contentHTML: "",
+    contentMarkdown: "",
+    description: "",
+  },
+  status: EStatus.LOADING,
 };
 
 export const doctorSlice = createSlice({

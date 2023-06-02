@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "utils/constants";
 
-const listmenu = [
+const listMenuAdmin = [
   {
     title: "header.side_bar.home_page",
     path: "/",
@@ -18,11 +18,37 @@ const listmenu = [
     title: "header.side_bar.doctor",
     path: ROUTES.system.doctor.index,
   },
+  {
+    title: "header.side_bar.medical_examination_plan",
+    path: ROUTES.system.doctor.plan.index,
+  },
   // {
   //   title: "header.side_bar.markdown",
   //   path: ROUTES.system.doctor.index,
   // },
 ];
+
+// const listMenuDoctor = [
+//   {
+//     title: "header.side_bar.home_page",
+//     path: "/",
+//   },
+//   {
+//     title: "header.side_bar.medical_examination_plan",
+//     path: ROUTES.system.doctor.plan.index,
+//   },
+// ];
+
+// const listMenuPatient = [
+//   {
+//     title: "header.side_bar.home_page",
+//     path: "/",
+//   },
+//   {
+//     title: "header.side_bar.medical_examination_plan",
+//     path: ROUTES.system.doctor.plan.index,
+//   },
+// ];
 
 const Sidebar = () => {
   const { t } = useTranslation();
@@ -77,7 +103,7 @@ const Sidebar = () => {
           />
         </div>
         <div className="grid grid-cols-1 gap-y-2">
-          {listmenu.map((item, index) => {
+          {listMenuAdmin.map((item, index) => {
             return (
               <div
                 key={index}

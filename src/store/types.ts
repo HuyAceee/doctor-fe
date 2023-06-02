@@ -18,6 +18,17 @@ export interface IGetMarkdownBody {
   id?: string;
 }
 
+export interface IGetSchuduleDoctorInDateBody {
+  doctorId: string;
+  date: number;
+}
+
+export interface ICreateScheduleBody {
+  doctorId: string;
+  date: number;
+  timeType: string;
+}
+
 export interface IUserDetail {
   id: string;
   email: string;
@@ -44,4 +55,19 @@ export interface IDoctorInfo {
   nameClinic: string;
   note: string;
   count: string;
+}
+
+export interface IMarkdown {
+  doctorId: string;
+  clinicId: string;
+  specialtyId: string;
+  contentHTML: string;
+  contentMarkdown: string;
+  description: string;
+}
+
+export enum EStatus {
+  LOADING = "LOADING",
+  SUCCESS = "SUCCESS",
+  FAILED = "FAILED",
 }

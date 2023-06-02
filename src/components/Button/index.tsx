@@ -2,6 +2,7 @@ import Loading from "components/Loading";
 import { useTranslation } from "react-i18next";
 import { EButtonType } from "types/globalsType";
 import { linearGradient } from "utils/constants";
+import clsx from "clsx";
 
 interface IButtonProps {
   title: string;
@@ -37,12 +38,15 @@ const Button = ({
       type="submit"
       onClick={onClick}
       disabled={disabled || loading}
-      className={
+      className={clsx(
         "h-10 px-5 rounded-[20px] disabled:opacity-60 min-w-[200px] md:min-w-0 uppercase flex items-center justify-center " +
-        classType +
-        " " +
-        className
-      }
+          classType +
+          " " +
+          className,
+        {
+          "cursor-not-allowed": disabled,
+        }
+      )}
     >
       {loading ? <Loading /> : <span>{t(title)}</span>}
     </button>

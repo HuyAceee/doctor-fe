@@ -15,6 +15,10 @@ export const ROUTES = {
       index: "/system/doctor-management",
       create: "/system/doctor-management/new",
       edit_info: "/system/doctor-management/edit_info",
+      plan: {
+        index: "/system/doctor/plan",
+        create: "/system/doctor/plan/new",
+      },
     },
   },
 };

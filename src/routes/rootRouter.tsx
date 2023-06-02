@@ -9,6 +9,7 @@ import HandleUser from "features/User/HandleUser";
 import Loading from "components/Loading";
 import DoctorPage from "containers/Doctor";
 import EditInfo from "features/Doctor/EditInfo";
+import MedicalExaminationPlan from "features/Plan";
 
 const NotFound = React.lazy(() => import("components/NotFound"));
 const Login = React.lazy(() => import("containers/Auth/Login"));
@@ -39,8 +40,20 @@ const RootRouter = () => {
 
           <Route path={ROUTES.system.doctor.index} element={<DoctorPage />} />
           <Route path={ROUTES.system.doctor.edit_info} element={<EditInfo />} />
+
+          <Route
+            path={ROUTES.system.doctor.plan.index}
+            element={<MedicalExaminationPlan />}
+          />
         </Route>
-        <Route path="/" element={<DefaultLayout />}>
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <DefaultLayout />
+            </PrivateRoute>
+          }
+        >
           <Route path={ROUTES.home} element={<HomePage />} />
         </Route>
         <Route path="*" element={<Navigate to={ROUTES.notfound} />} />
