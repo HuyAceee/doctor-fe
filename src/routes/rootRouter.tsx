@@ -3,17 +3,18 @@ import { ROUTES } from "utils/constants";
 import { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { getToken } from "utils/localStorage";
-import DefaultLayout from "layouts/DefaultLayout";
-import UserPage from "containers/User";
-import HandleUser from "features/User/HandleUser";
-import Loading from "components/Loading";
-import DoctorPage from "containers/Doctor";
-import EditInfo from "features/Doctor/EditInfo";
-import MedicalExaminationPlan from "features/Plan";
 
+const HomePage = React.lazy(() => import("containers/Home"));
 const NotFound = React.lazy(() => import("components/NotFound"));
 const Login = React.lazy(() => import("containers/Auth/Login"));
-const HomePage = React.lazy(() => import("containers/Home"));
+const DefaultLayout = React.lazy(() => import("layouts/DefaultLayout"));
+const UserPage = React.lazy(() => import("containers/User"));
+const HandleUser = React.lazy(() => import("features/User/HandleUser"));
+const Loading = React.lazy(() => import("components/Loading"));
+const DoctorPage = React.lazy(() => import("containers/Doctor"));
+const EditInfo = React.lazy(() => import("features/Doctor/EditInfo"));
+const MedicalExaminationPlan = React.lazy(() => import("features/Plan"));
+const BookingForm = React.lazy(() => import("features/Booking/BookingForm"));
 
 const PrivateRoute = ({ children }: any) => {
   const auth = getToken();
@@ -55,6 +56,7 @@ const RootRouter = () => {
           }
         >
           <Route path={ROUTES.home} element={<HomePage />} />
+          <Route path={ROUTES.booking.new} element={<BookingForm />} />
         </Route>
         <Route path="*" element={<Navigate to={ROUTES.notfound} />} />
       </Routes>

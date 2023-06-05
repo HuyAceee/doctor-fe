@@ -3,6 +3,10 @@ export const ROUTES = {
     index: "/login",
   },
   home: "/",
+  booking: {
+    new: "/booking/new",
+    vetify: "/booking/vetify",
+  },
   notfound: "/404",
   system: {
     index: "/system",

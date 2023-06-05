@@ -22,6 +22,10 @@ const listMenuAdmin = [
     title: "header.side_bar.medical_examination_plan",
     path: ROUTES.system.doctor.plan.index,
   },
+  {
+    title: "header.side_bar.create_booking",
+    path: ROUTES.booking.new,
+  },
   // {
   //   title: "header.side_bar.markdown",
   //   path: ROUTES.system.doctor.index,

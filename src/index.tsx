@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
@@ -7,6 +7,7 @@ import "./i18n";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Toast from "components/ToastContainer";
+import Loading from "components/Loading";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,7 +15,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Suspense fallback={<Loading />}>
+        <App />
+      </Suspense>
       <Toast />
     </BrowserRouter>
   </React.StrictMode>

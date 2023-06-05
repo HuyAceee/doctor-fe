@@ -43,6 +43,7 @@ export default {
       user: "Quản lý người dùng",
       doctor: "Quản lý bác sĩ",
       medical_examination_plan: "Kế hoạch khám bệnh",
+      create_booking: "Tạo lịch khám bệnh",
     },
   },
   table: {
