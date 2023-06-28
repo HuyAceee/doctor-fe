@@ -15,6 +15,7 @@ const DoctorPage = React.lazy(() => import("containers/Doctor"));
 const EditInfo = React.lazy(() => import("features/Doctor/EditInfo"));
 const MedicalExaminationPlan = React.lazy(() => import("features/Plan"));
 const BookingForm = React.lazy(() => import("features/Booking/BookingForm"));
+const VerifyMail = React.lazy(() => import("features/Booking/VerifyMail"));
 
 const PrivateRoute = ({ children }: any) => {
   const auth = getToken();
@@ -58,6 +59,7 @@ const RootRouter = () => {
           <Route path={ROUTES.home} element={<HomePage />} />
           <Route path={ROUTES.booking.new} element={<BookingForm />} />
         </Route>
+        <Route path={ROUTES.booking.vetify} element={<VerifyMail />} />
         <Route path="*" element={<Navigate to={ROUTES.notfound} />} />
       </Routes>
     </Suspense>

@@ -9,3 +9,9 @@ export interface IEditUser {
   body: IUserFormData;
   id: string;
 }
+
+export interface IUpdateBookingStatusBody {
+  doctorId: string;
+  token: string;
+  statusId: string;
+}
